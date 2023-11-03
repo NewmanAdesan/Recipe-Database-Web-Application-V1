@@ -95,3 +95,42 @@ STEP 3: APPLICATION SETUP - TYPOGRAPHY VARIABLES
     DM SERIF DISPLAY FONT
 
     DM SANS FONT
+
+
+
+STEP 4: APPLICATION SETUP - BOX STYLING VARIABLES
+
+    BORDER RADIUS
+        - 4 pixel border radius
+        - 8 pixel boder radius
+        - border radius for pill element
+        - border radius for circular element
+
+    BOX SHADOW
+        - 20% opacity black shadow with a blur level of 8 pixel in a y-direction of -1 pixel
+        - 30% opacity black shadow with a blur level & spread level of 4pixel & 1 pixel respectively in a y-direction of 2 pixel.
+
+
+
+STEP 5: APPLICATION SETUP - SIZE VARIABLES
+    HEADER HEIGHT
+    MOBILE NAVIGATION HEIGHT
+    SECTION GAP
+
+
+
+STEP 6: APPLICATION SETUP - TRANSITION VARIABLES
+
+    NOTE: this variables are setup in the root pseudo-seletor UNDER MEDIA QUERY WHOSE 'PREFERS-REDUCED-MOTION' IS SET TO 'NO-PREFERENCE'
+    TRANSITION TIMING FUNCTION
+        - utilizing a cubic bezier function (accelaration of the transition is plotted with a Bezier curve {xaxis-progression & yaxis-time})
+        - start bezier curve handle position of (.2, 0)
+        - end bezier curve handle position of (0, 1)
+
+    SHORT TRANSITION
+        - duration of 200ms
+        - timing function of our custom bezier curve
+
+    LONG TRANSITION
+        - duration of 500ms
+        - timing function of our custom bezier curve
