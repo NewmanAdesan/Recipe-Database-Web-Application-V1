@@ -92,9 +92,12 @@ STEP 3: APPLICATION SETUP - TYPOGRAPHY VARIABLES
         - regular font weight
         - medium font weight
 
-    DM SERIF DISPLAY FONT
+    PRIMARY FONT
+        - dm serif display & serif as fallback
 
-    DM SANS FONT
+    SECONDARY FONT
+        - dm sans & sans-serif as fallback
+
 
 
 
@@ -134,3 +137,74 @@ STEP 6: APPLICATION SETUP - TRANSITION VARIABLES
     LONG TRANSITION
         - duration of 500ms
         - timing function of our custom bezier curve
+
+
+
+STEP 7: APPLICATION SETUP - THEME VARIABLES
+
+    here, we aim to polymorphorsize our color variables
+    such that the same css variable will reference two different properties depending on the context of the page. this context is determined by the value of an attribute.
+
+    once this is done, color of elements on the page can connect to a variable & the property will change depending on the value of an attribute on the page. this value can simply be changed via javascript.
+
+    in step 2, 
+    we categorize the coloring of our page into background, primary, badge-btn, outline, alpha e.t.c 
+    we then css variable for each category FOR EACH THEME (light & dark) such that we have --light-background, --dark-background, --light-primary, --dark-primary e.t.c
+
+    in this step,
+    we will create css variables for each category
+    then via css attribute styling if any element has the attribute 'data-theme' set to 'light' the category css variables we just created will reference the light category css variables we created earlier.
+    then also via css attribute styling if any element has the attribute 'data-theme 'set to 'dark', the same category css variables we just created
+    such as '--background: --light-background' e.t.c
+
+
+
+STEP 8: APPLICATION SETUP - RESET STYLING
+    ALL ELEMENTS
+        - zero margin & padding
+        - border-box box sizing
+
+    INLINE ELEMENTS
+        - set the block display of inline elements 'a', 'img', 'button', 'span'
+
+    INPUT & BUTTON ELEMENT
+        - set font property to inherit
+        - none background & none border
+
+    LIST & LINK ELEMENT
+        - no list style for li element
+        - no text decoration for anchor element
+        - set color value to inherit for anchor element
+
+    IMAGE, INPUT & BUTTON ELEMENT
+        - auto height for img element
+        - 100% width of input element
+        - set color value to inherit for button element
+        - set pointer cursor for button element
+
+    HTML ELEMENT
+        - setup font family & font-size
+        - smooth scroll behaviour
+        - set webkit tap highlight color to transparent
+
+    BODY ELEMENT
+        - display: flex, column-flex-direction, zero-opacity
+        - size: minimum height of 100vh, top padding of header-height, bottom padding of mobile nav height
+        - color: background color set to 'background variable', text color set to 'on-background variable'
+        - font: set font-size, font-weight, letter-spacing, line-height
+        - animation: setup fade animation such that in short transition time with the transition timing function variable the opacity changes from 0 to 1
+
+    MAIN ELEMENT
+        - flex grow of 1
+
+
+STEP 9: APPLICATION SETUP - FONT SETTING UTILITY CLASSES
+    we categorise element on pages in our web-app by there font setting into "display", "title", "label", "body" "headline".
+    and each category can have a small, medium & large version such that we have "display-small", "display-medium", "display-large" e.t.c
+
+    therefore we would create utility class which specify the font setting for each category.
+    font-settings such as font-size, font-weight, font-family, letter-spacing, line-height.
+
+    the classes are
+    "display-{large/small/medium}", "headline-small", "title-{small/medium}", "body-{medium/large}" 
+
