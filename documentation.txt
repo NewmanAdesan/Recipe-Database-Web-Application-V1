@@ -1,0 +1,157 @@
+
+STEP 1: THE HEADER LAYOUT
+
+STEP 2: THE HEADER UI STYLING
+
+    THE HAS-STATE INTERACTION
+        Concept
+            - we would encapsulate an interaction into the 'has-state class'.
+            - in the Header UI, each nav link & the icon button has this interaction.
+            - for the implementation of this interaction we will utilize the 'after pseudo-element' 
+            - such that where the element with the 'has-state class' is in hover state or focus-visible state and not active state, its background color will be the variable 'alpha-10'
+
+        Implementation
+            - the has-state element is given a relative position, hidden overflow
+            - the has-state element after pseudo-element is given an empty content, absolute position with zero inset, short transition
+            - utilizing the where & not pseudo-classes; when the has-state element is in 'hover state' or 'focus-visible state' NOT 'active state', the has-state element after pseudo-element background-color will change to 'alpha-10 variable'
+
+        Style Type
+            - Reusable
+
+
+    THE MATERIAL ICON SETTING
+        Concept
+            - utilizing the material icon cdn, we can use their icon in our html code
+            - in the Header UI, we have two of this icons
+            - to do so, we encapsulate the icon-name in a span element & give it the 'material-symbols-outlined class'.
+            - now we want to style the size, font-variation-settings & display of the icons. we do this using the 'material-symbols-outlined class'
+
+        Implementation
+            - display settings to block display, hidden overflow
+            - size settings to 1em width, 1em height
+            - with knowledge from material icon documentation, font-variation-settings to 0 FILL, 400 wght, 0 GRAD, 24 opsz
+
+        Style Type
+            - Reusable
+
+
+    THE ICON BUTTON STYLING
+        Concept
+            - an icon button is a button that encapsulate a material icon
+            - we have this buttons in several UI of our application. the Header UI has one of this type of button.
+            - we want to style all this button in the same way therefore we would utilize the "icon-btn class"
+            - we would encapsulate a styling for a button in the "icon-btn class".
+
+        Implementation
+            - display settings to grid display, center place-items
+            - size settings to 40 pixel width, 40 pixel height
+            - color settings to `primary-container` background color
+            - box styling to `radius-circle` border radius
+
+        Style Type
+            - Component
+
+
+    THE BUTTON STYLING
+        Concept
+             - there are buttons spread across our pages and we want to style them in a specific way
+             - we encapsulate this styling in the 'btn class'
+             - some of this kind of button have icons in them tagged via the 'has-icon class'. DO NOTE THEY ARE DIFFERENT FROM ICON BUTTONS
+             - buttons with the 'btn class' & 'has-icon class' has a slightly different box styling setting
+
+        Implementation
+            - display settings to flex display, center align-items, center justify-content, 8 pixel gap.
+            - size settings to 40 pixel height, max-content max width
+            - box settings to radius-4 border radius, 24 pixel inline padding
+            - interaction settings to `short transition`
+            - box settings of button that has icon ('btn has-icon') to 16 pixel start inline padding
+
+        Style Type
+            - Component
+
+
+    THE PRIMARY BUTTON STYLING
+        Concept
+            - there are buttons ('btn class') that are regarded as primary buttons basically because of their color setting; they use a primary color of the site
+            - we want to style the coloring of this buttons differently therefore, we encapsulate this styling in a 'btn-primary class'
+
+        Implementation
+            - color settings to `primary` background color, white text color
+            - color setting when in 'hover state' OR 'focus-visible state' does not apply to 'active state' to `primary hover` background color.
+
+        Style Type
+            - Component
+
+
+    THE SECONDARY BUTTON STYLING
+        Concept
+            - there are buttons ('btn class') that are regarded as primary buttons basically because of their color setting; they use a secondary color
+            - we want to style the coloring of this buttons differently therefore, we encapsulate this styling in a 'btn-secondary class'
+
+        Implementation
+            - color settings to `primary-container` background color  
+
+        Style Type
+            - Component
+
+    
+    THE MOBILE HEADER STYLING
+        Concept
+            - using a mobile first approach, the header by default will be in its mobile form.
+            - in mobile, the navbar & primary button in the header will be hidden
+            - in mobile, dark theme items in the header WILL HAVE NO DISPLAY when they have an ancestor with the attribute data-theme set to 'light'
+            - in mobile, light theme items itn the header WILL HAVE NO DISPLAY when they have an ancestor with the attribute data-theme set to 'dark'
+            - the header element is going to be styled via the "header class"
+
+        Implementation
+            - display settings to flex display, center align-items, 8 pixel gap
+            - position settings to fixed position, 0 top, 0 left, 4 z-index
+            - size settings to 100 percent width, `header-height` height
+            - color settings to `background variable` background color
+            - box settings to 8 pixel padding, 1 pixel solid border with `primary-container` color
+
+        Style Type
+            - Header UI
+
+
+STEP 3: THE HEADER UI INTERACTION (PAGE THEME LOGIC)
+
+    Concept
+        - the theme switch icon is placed in the Header so let's talk about the page theme logic.
+        - the `data-theme attribute` of the html element sets the theme of the page.
+        - the current theme of the page will be stored in the session storage since this information will be needed by the 4 pages of the web application.
+        - the `theme.js script` placed in the `head element` takes care of the theme logic of the page.
+        - the theme.js script does three things:
+            - sets the `data-theme` based on the theme value in the session storage
+            - sets the `data-theme` based on the window prefers-color-scheme IF NO THEME VALUE IN SESSION STORAGE
+            - sets a click event handler on the theme switch button
+        - the click event handler does three things:
+            - set the `aria-pressed attribute` of the button to its complement
+            - set the `data-theme attribute` of html to its complement
+            - set the `theme key` of the session storage to the `data-theme attribute`
+
+    Implementation
+        - inside the theme.js script
+        - set the NodeElement variable `HTML` which corresponds to the html element `const /** NodeElement **/ $HTML = document.documentElement`
+        - set the boolean variable `isDark` which corresponds to if the window prefers-color-scheme is dark; this is inspected using the window match media function `window.matchmedia("(prefers-color-scheme:dark)").matches`
+        - set the data-theme of the html element to the session storage theme value IF SESSION STORAGE HAVE THE ITEM THEME; `$HTML.dataset.theme = sessionStorage.getItem("theme")`
+        - set the data-theme of the html element to 'dark' IF isDark IS TRUE OTHERWISE SET TO 'light'
+        - add a load event handler to the window element
+            - set the NodeElement variable `themeBtn` to the button element `document.querySelector('[data-theme-switch]')
+            - add a click event handler on the themeBtn
+                - set the boolean variable `ariaPressed` to the ariaPressed attribute of the button element `let /** Boolean **/ $ariaPressed = this.getAttribute("aria-pressed")`
+                - set the `aria-pressed attribute` of the button element to the complement of `ariaPressed variable` `this.setAttribute("aria-pressed", !ariaPressed)`
+                - set the `data-theme` of the html element to 'light' if the value is 'dark' else set to 'dark' `$HTML.dataset.theme = $HTML.dataset.theme==="dark" ? "light" : "dark"`
+                - set the `theme key` of the session Storage `sessionStorage.setItem("theme", $HTML.dataset.theme)`
+
+
+
+
+
+
+            
+the header ui constitute of four items
+    - the Logo
+    - the Navigation links
+    - the Theme Switch button
+    - the Saved Recipe link

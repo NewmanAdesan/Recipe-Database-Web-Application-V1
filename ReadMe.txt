@@ -2,6 +2,7 @@
 COMMIT CATEGORIES
     APPLICATION BREAKDOWN
     APPLICATION SETUP
+    APPLICATION UI
     APPLICATION FEATURE IMPLEMENTATION
     APPLICATION BUG FIXES
     APPLICATION EXTRAS
@@ -156,6 +157,7 @@ STEP 7: APPLICATION SETUP - THEME VARIABLES
     then via css attribute styling if any element has the attribute 'data-theme' set to 'light' the category css variables we just created will reference the light category css variables we created earlier.
     then also via css attribute styling if any element has the attribute 'data-theme 'set to 'dark', the same category css variables we just created
     such as '--background: --light-background' e.t.c
+    actually, this attribute will be placed in the html element thus every descendant can utilize the variable 
 
 
 
@@ -208,3 +210,19 @@ STEP 9: APPLICATION SETUP - FONT SETTING UTILITY CLASSES
     the classes are
     "display-{large/small/medium}", "headline-small", "title-{small/medium}", "body-{medium/large}" 
 
+
+STEP 9: APPLICATION FEATURE - HEADER UI
+
+The 'has-state' interaction
+we would encapsulate an interaction into the class 'has-state'.
+for the implementation of this interaction we will utilize the 'after pseudo-element' such that where the element with the 'has-state class' is in hover state or focus-visible state and not active state, its background color will be the variable 'alpha-10'
+    - the has-state element is given a relative position, hidden overflow
+    - the has-state element after pseudo-element is given an empty content, absolute position
+
+
+inspecting the links, there is an interaction.
+this interaction also applies to the icon button, therefore this interaction will be encapsulated in a class so it is reusable.
+    - when the element is hover upon its background shortly transitions to a grayish color.
+    - for links, if the link is active this specific interaction will not be seen.
+    - we would encapsulate this interaction in a class called 'has-state'
+    - for the implementation of this interaction we will utilize the 'after pseudo-element' such that where the element with the 'has-state class' is in hover state or focus-visible state and not active state, its background color will be the variable 'alpha-10'
