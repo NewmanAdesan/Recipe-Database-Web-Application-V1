@@ -1,6 +1,46 @@
 
 STEP 1: THE HEADER LAYOUT
 
+    The Header   
+    the header container is a flex-box that constitute 4 items
+        - the Logo
+        - the Navigation links
+        - the Theme Switch button
+        - the Saved Recipe button
+
+    The Logo
+        - the logo container is a link to the homepage (href='/')
+        - the logo container encapsulate two images. both are the same logo but with different colors
+        - when the website is in light-theme mode, only one logo image displays (the light-theme-logo)
+        - when the website is in dark-theme mode, only one logo image displays (the dark-theme-logo)
+        - the logo images have a width of 156 pixel & a height of 32 pixel
+
+    The Navigation links
+        - the navigation link container is hidden for mobile view.
+        - there are two links in the navigation container "Home" & "Recipes".
+        - the links font-size category is "title-small".
+        - the link that is active has a special style; an orange underline.
+        - when the UNACTIVE LINK is hovered upon, its background color transition to a color called 'alpha-10'.
+
+    The Theme Switch Button
+        - the button container encapsulate two material icon.
+        - when the website is in light-theme mode, only one material icon displays (the light-theme-icon).
+        - when the website is in dark-theme mode, only one material icon displays (the dark-theme-icon).
+        - when the button is hovered on, its background color transition to a color called 'alpha-10'.
+        - the theme switch button is a style component called "icon-button".
+        - the material icons have an aria-hidden of true
+        - the button container have an aria-pressed of false
+        - the button container have an aria-lable of 'Toggle Light & dark Theme'
+
+    The Saved Recipe button
+        - the container is a link to the page with all the saved recipe (href='/saved-recipes.html').
+        - the container encapsulates 2 items "a material icon" & "a Saved Recipes text".
+        - the container is a style component called "btn".
+        - the container is a style component called "btn-primary".
+        - the material icon have an aria-hidden of true.
+
+
+
 STEP 2: THE HEADER UI STYLING
 
     THE HAS-STATE INTERACTION
@@ -13,7 +53,7 @@ STEP 2: THE HEADER UI STYLING
         Implementation
             - the has-state element is given a relative position, hidden overflow
             - the has-state element after pseudo-element is given an empty content, absolute position with zero inset, short transition
-            - utilizing the where & not pseudo-classes; when the has-state element is in 'hover state' or 'focus-visible state' NOT 'active state', the has-state element after pseudo-element background-color will change to 'alpha-10 variable'
+            - utilizing the WHERE & NOT PSEUDO-CLASSES; when the has-state element is in 'hover state' or 'focus-visible state' NOT 'active state', the has-state element after pseudo-element background-color will change to 'alpha-10 variable'
 
         Style Type
             - Reusable
@@ -114,6 +154,7 @@ STEP 2: THE HEADER UI STYLING
             - Header UI
 
 
+
 STEP 3: THE HEADER UI INTERACTION (PAGE THEME LOGIC)
 
     Concept
@@ -143,15 +184,3 @@ STEP 3: THE HEADER UI INTERACTION (PAGE THEME LOGIC)
                 - set the `aria-pressed attribute` of the button element to the complement of `ariaPressed variable` `this.setAttribute("aria-pressed", !ariaPressed)`
                 - set the `data-theme` of the html element to 'light' if the value is 'dark' else set to 'dark' `$HTML.dataset.theme = $HTML.dataset.theme==="dark" ? "light" : "dark"`
                 - set the `theme key` of the session Storage `sessionStorage.setItem("theme", $HTML.dataset.theme)`
-
-
-
-
-
-
-            
-the header ui constitute of four items
-    - the Logo
-    - the Navigation links
-    - the Theme Switch button
-    - the Saved Recipe link
