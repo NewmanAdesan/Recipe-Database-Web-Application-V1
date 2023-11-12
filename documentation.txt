@@ -1,4 +1,11 @@
 
+
+STEP 1: THE HEADER LAYOUT
+STEP 2: THE HEADER COMPONENT STYLING
+STEP 3: THE HEADER COMPONENT INTERACTION (PAGE THEME LOGIC)
+
+
+
 STEP 1: THE HEADER LAYOUT
 
     The Header   
@@ -41,7 +48,10 @@ STEP 1: THE HEADER LAYOUT
 
 
 
-STEP 2: THE HEADER UI STYLING
+
+
+
+STEP 2: THE HEADER COMPONENT STYLING
 
     THE HAS-STATE INTERACTION
         Concept
@@ -49,6 +59,9 @@ STEP 2: THE HEADER UI STYLING
             - in the Header UI, each nav link & the icon button has this interaction.
             - for the implementation of this interaction we will utilize the 'after pseudo-element' 
             - such that where the element with the 'has-state class' is in hover state or focus-visible state and not active state, its background color will be the variable 'alpha-10'
+            - where are we particular about the 'not active state'. 
+                - because this class will be placed on the navigation link; 
+                - but we want this background color transition to apply to the link that is not currently active
 
         Implementation
             - the has-state element is given a relative position, hidden overflow
@@ -75,7 +88,7 @@ STEP 2: THE HEADER UI STYLING
             - Reusable
 
 
-    THE ICON BUTTON STYLING
+    THE ICON BUTTON STYLE COMPONENT
         Concept
             - an icon button is a button that encapsulate a material icon
             - we have this buttons in several UI of our application. the Header UI has one of this type of button.
@@ -92,7 +105,7 @@ STEP 2: THE HEADER UI STYLING
             - Component
 
 
-    THE BUTTON STYLING
+    THE BUTTON STYLE COMPONENT
         Concept
              - there are buttons spread across our pages and we want to style them in a specific way
              - we encapsulate this styling in the 'btn class'
@@ -110,7 +123,7 @@ STEP 2: THE HEADER UI STYLING
             - Component
 
 
-    THE PRIMARY BUTTON STYLING
+    THE PRIMARY BUTTON STYLE COMPONENT
         Concept
             - there are buttons ('btn class') that are regarded as primary buttons basically because of their color setting; they use a primary color of the site
             - we want to style the coloring of this buttons differently therefore, we encapsulate this styling in a 'btn-primary class'
@@ -123,7 +136,7 @@ STEP 2: THE HEADER UI STYLING
             - Component
 
 
-    THE SECONDARY BUTTON STYLING
+    THE SECONDARY BUTTON STYLE COMPONENT
         Concept
             - there are buttons ('btn class') that are regarded as primary buttons basically because of their color setting; they use a secondary color
             - we want to style the coloring of this buttons differently therefore, we encapsulate this styling in a 'btn-secondary class'
@@ -155,7 +168,10 @@ STEP 2: THE HEADER UI STYLING
 
 
 
-STEP 3: THE HEADER UI INTERACTION (PAGE THEME LOGIC)
+
+
+
+STEP 3: THE HEADER COMPONENT INTERACTION (PAGE THEME LOGIC)
 
     Concept
         - the theme switch icon is placed in the Header so let's talk about the page theme logic.
@@ -184,3 +200,79 @@ STEP 3: THE HEADER UI INTERACTION (PAGE THEME LOGIC)
                 - set the `aria-pressed attribute` of the button element to the complement of `ariaPressed variable` `this.setAttribute("aria-pressed", !ariaPressed)`
                 - set the `data-theme` of the html element to 'light' if the value is 'dark' else set to 'dark' `$HTML.dataset.theme = $HTML.dataset.theme==="dark" ? "light" : "dark"`
                 - set the `theme key` of the session Storage `sessionStorage.setItem("theme", $HTML.dataset.theme)`
+
+
+
+
+
+
+STEP 4: THE MOBILE NAVIGATION LAYOUT
+    
+    Concept
+        - the navigation is implemented with an unordered list with three list item 'Recipes Link', 'Home Link' & 'Saved Link'
+        - the list items are actually links to a page of the web application
+        - the list items link contains two things the item-icon & the item-text
+        - the item icon is a container that encapsulates a material icon which is centered in it
+        - the item-text font size category is label-medium
+        - the active list item link has an aria-current of true
+        - the navigation container has an aria-label of `primary`
+        - the material icon has an aria-hidden of true 
+        
+    Implementation
+        - therefore a 'nav element' encapsulate a 'ul element' which encapsulate '3 li elements'
+        - the li elements encapsulate an 'anchor element'. the anchor element encapsulate '2 span elements'
+        - the span element for the item-icon & the span element for the item-text
+        - the item-icon span element encapsulates the 'material icon span element'.
+        - the item-text span element has a 'label-medium class'
+        - the nav element has an aria-label of `primary`
+        - the material icon span element has an aria-hidden of true.
+        - the 'anchor element' that is active has an aria-current of true.
+
+
+
+        
+
+
+STEP 5: THE MOBILE NAVIGATION STYLING
+
+    Specification
+        - we want the mobile navigation to be position at the bottom of the screen and be a certain height and viewport width
+        - we want the mobile navigation to have a top & bottom padding
+        - we want the navigation links to occupy equal width space
+        - we want the navigation link content to be centered
+        - we want the navigation link icon container to have a grayish background color when the navigation link is hovered upon
+        - we want the active navigation icon container to have a different background color
+        - we want the active navigation icon container material icon to have a 100 percent FILL
+
+    Concept
+        - the nav element via the 'mobile-nav class' specifies the positioning, size, box styling & colouring of the mobile navigation, 
+        - the ul element via the 'nav-list class' specifies display; since we want the link to occupy equal width space, we utilize the `1fr concept` in grid display.
+        - the ul element via the 'nav-list class' also specify the a center text align
+        - the first span element via the 'item-icon class' specifies the box styles of the icon container, using an auto margin-inline for centering.
+        - the anchor element via the 'nav-link class', we can check the hover & focus visible state
+        - the anchor element via the 'nav-link class', we can check if it has the attribute 'aria-current=true'
+
+    Implementation
+        - via the 'mobile-nav class'
+        - set the position settings to bottom position, zero left, zero bottom, four z-index.
+        - set the size settings to 100 percent width, mobile-nav-height variable as height
+        - set the box settings to 12 pixel by 16 pixel block padding, 'shadow-1' box shadow
+        - set the color settings to 'primary-container' background color, 'on-background-variant' text color
+
+        - via the 'nav-list' class
+        - set the display settings to grid display, 1fr x 3 grid template column
+        - set the text settings to center text align
+
+        - via the 'item-icon' class
+        - set the size settings to 64pixel width, 32pixel height
+        - set the display settings to grid display, center place-items
+        - set the box setting to 8pixel border radius, auto margin inline, 4pixel margin bottom
+        - set the transition setting to short transition
+
+        - where the 'nav-link' of the 'mobile-nav' is in hover state, focus-visible state, set the 'item-icon' color settings to alpha-10 background color
+        - when the 'nav-link' of the 'mobile-nav' have attribute aria-current=true, set the 'item-icon' color settings to active-indicator background color
+        - when the 'nav-link' of the 'mobile-nav' have attribute aria-current=true, set the 'material-symbols-outlined class' font variation settings to 'FILL' 1
+
+
+
+

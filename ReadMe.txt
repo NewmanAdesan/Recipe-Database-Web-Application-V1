@@ -11,6 +11,10 @@ COMMIT CATEGORIES
 
 
 
+
+
+
+
 STEP 1: APPLICATION SETUP - META & LINKS
     META
         - charset
@@ -26,6 +30,10 @@ STEP 1: APPLICATION SETUP - META & LINKS
         - Favicon & Font
         - External CSS file
         - External JS file (theme, global & page script)
+
+
+
+
 
 
 
@@ -70,6 +78,10 @@ STEP 2: APPLICATION SETUP - COLORS VARIABLES (LIGHT & DARK VERSION)
 
 
 
+
+
+
+
 STEP 3: APPLICATION SETUP - TYPOGRAPHY VARIABLES
     DISPLAY FONT SIZE
         - small, large, medium font sizes for display elements
@@ -102,6 +114,10 @@ STEP 3: APPLICATION SETUP - TYPOGRAPHY VARIABLES
 
 
 
+
+
+
+
 STEP 4: APPLICATION SETUP - BOX STYLING VARIABLES
 
     BORDER RADIUS
@@ -116,10 +132,18 @@ STEP 4: APPLICATION SETUP - BOX STYLING VARIABLES
 
 
 
+
+
+
+
 STEP 5: APPLICATION SETUP - SIZE VARIABLES
     HEADER HEIGHT
     MOBILE NAVIGATION HEIGHT
     SECTION GAP
+
+
+
+
 
 
 
@@ -141,6 +165,10 @@ STEP 6: APPLICATION SETUP - TRANSITION VARIABLES
 
 
 
+
+
+
+
 STEP 7: APPLICATION SETUP - THEME VARIABLES
 
     here, we aim to polymorphorsize our color variables
@@ -158,6 +186,10 @@ STEP 7: APPLICATION SETUP - THEME VARIABLES
     then also via css attribute styling if any element has the attribute 'data-theme 'set to 'dark', the same category css variables we just created
     such as '--background: --light-background' e.t.c
     actually, this attribute will be placed in the html element thus every descendant can utilize the variable 
+
+
+
+
 
 
 
@@ -200,6 +232,10 @@ STEP 8: APPLICATION SETUP - RESET STYLING
         - flex grow of 1
 
 
+
+
+
+
 STEP 9: APPLICATION SETUP - FONT SETTING UTILITY CLASSES
     we categorise element on pages in our web-app by there font setting into "display", "title", "label", "body" "headline".
     and each category can have a small, medium & large version such that we have "display-small", "display-medium", "display-large" e.t.c
@@ -211,18 +247,25 @@ STEP 9: APPLICATION SETUP - FONT SETTING UTILITY CLASSES
     "display-{large/small/medium}", "headline-small", "title-{small/medium}", "body-{medium/large}" 
 
 
-STEP 9: APPLICATION FEATURE - HEADER UI
-
-The 'has-state' interaction
-we would encapsulate an interaction into the class 'has-state'.
-for the implementation of this interaction we will utilize the 'after pseudo-element' such that where the element with the 'has-state class' is in hover state or focus-visible state and not active state, its background color will be the variable 'alpha-10'
-    - the has-state element is given a relative position, hidden overflow
-    - the has-state element after pseudo-element is given an empty content, absolute position
 
 
-inspecting the links, there is an interaction.
-this interaction also applies to the icon button, therefore this interaction will be encapsulated in a class so it is reusable.
-    - when the element is hover upon its background shortly transitions to a grayish color.
-    - for links, if the link is active this specific interaction will not be seen.
-    - we would encapsulate this interaction in a class called 'has-state'
-    - for the implementation of this interaction we will utilize the 'after pseudo-element' such that where the element with the 'has-state class' is in hover state or focus-visible state and not active state, its background color will be the variable 'alpha-10'
+
+
+STEP 10: APPLICATION FEATURE - HEADER UI
+    THE LAYOUT
+        - the header component is a flexbox with 4 items
+        - the logo, the navigation-links, the theme-switch button, the saved-recipes button
+        - the navigation links to not show in mobile view
+        - the saved-recipies button is actually a link to the saved recipes page
+        - the logo & theme switch button container encapsulates two version 'the light theme version' & 'the dark theme version'. but only one displays depending on the theme of the page
+        - CHECK STEP-1 IN documentation.txt
+
+    THE STYLING
+        - the hover interaction of the navigation-links & theme-switch button will be encapsulated in a class
+        - the styling of the theme-switch button will be encapsulated in a reusable class "icon-btn"
+        - the styling of the saved recipes button will be encapsulated in a reusable class "btn" & "btn-primary"
+        - CHECK STEP-2 IN documentation.txt
+
+    THE BASIC INTERACTION
+        - when the the theme-switch button is clicked, the theme of the page changes.
+
