@@ -2,7 +2,7 @@
 COMMIT CATEGORIES
     APPLICATION BREAKDOWN
     APPLICATION SETUP
-    APPLICATION UI
+    APPLICATION COMPONENT
     APPLICATION FEATURE
     APPLICATION BUG FIXES
     APPLICATION EXTRAS
@@ -18,7 +18,7 @@ COMMIT CATEGORIES
 STEP 1: APPLICATION SETUP - META & LINKS
     META
         - charset
-        - http-equiv
+        - http-eqCOMPONENTv
         - viewport meta
         - author meta
         - revised meta
@@ -251,7 +251,7 @@ STEP 9: APPLICATION SETUP - FONT SETTING UTILITY CLASSES
 
 
 
-STEP 10: APPLICATION FEATURE - HEADER UI
+STEP 10: APPLICATION FEATURE - HEADER COMPONENT
     THE LAYOUT
         - the header component is a flexbox with 4 items
         - the logo, the navigation-links, the theme-switch button, the saved-recipes button
@@ -268,4 +268,38 @@ STEP 10: APPLICATION FEATURE - HEADER UI
 
     THE BASIC INTERACTION
         - when the the theme-switch button is clicked, the theme of the page changes.
+        - CHECK STEP-3 IN documentation.txt
+
+
+
+
+
+
+STEP 11: APPLICATION FEATURE - MOBILE NAVIGATION COMPONENT
+    THE CONCEPT
+        - this application features 4 pages 'home page', 'recipes page', 'saved recipes page' & recipe detail page
+        - this application has a mobile navigation component situatd at the bottom of the page
+        - the mobile navigation encapsulate 3 link, 'link to the homepage', 'link to the Recipes page' & 'link to the Saved recipes page'
+        - two items describe the link. an icon & a text(label)
+
+    THE LAYOUT
+        - this component is implement with an unordered list.
+        - 1 ul element & 3 li element
+        - the li element encapsulate the anchor element so it becomes a link.
+        - the anchor element encapsulates a material icon & a text.
+        - CHECK STEP-4 IN documentation.txt
+
+    THE STYLES
+        - the mobile navigation is positioned at the bottom of the screen, at a certain height and with viewport width
+        - we want the navigation link icon container to have a grayish background color when the navigation link is hovered upon
+        - we want the active navigation icon container to have a different background color
+        - we want the active navigation icon container material icon to have a 100 percent FILL
+        - CHECK STEP-5 IN documentation.txt
+
+
+
+
+
+
+STEP 12: APPLICATION FEATURE - MOBILE NAVIGATION COMPONENT
 

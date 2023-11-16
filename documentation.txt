@@ -275,4 +275,22 @@ STEP 5: THE MOBILE NAVIGATION STYLING
 
 
 
+        
+
+
+STEP 5: THE BANNER COMPONENT LAYOUT
+    Concept
+        - the article element: this encapsulates all components aside the header component.
+        - the main element: this encapsulates the article element.
+        - the banner component: a section element. It's the first child of the article element. it has a banner aria-label
+        - the banner-card component: a div element. it is encapsulated by the banner component. it encapsulates 3 items 'a title', 'a search component', 'a label'
+        - the banner title: this is establised by an h1 element.
+        - the banner search component: a div element. it encapsulates 3 items 'an icon', 'an search input', 'a search button'
+            - the banner search component icon: a span element. it has a true aria-hidden
+            - the banner search component input: an input element. it has a 'search' type. it has a 'search' name. it's placeholder & aria-label is 'Search Recipe'
+            - the banner search component button: a button element. it has an 'Submit' aria label. it encapsulate a search material icon(span elemet) which has a true aria-hidden.
+        - the banner search label: a p element.
+
+
+
 
