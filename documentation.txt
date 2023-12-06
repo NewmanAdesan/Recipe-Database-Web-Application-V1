@@ -426,3 +426,114 @@ STEP 7: THE MEAL-TYPE TAB COMPONENT LAYOUT
             - the third panel has an id of panel-3, an aria-labelledby of tab-3, tabindex of 0, an hidden attribute
             - the fouth panel has an id of panel-4, an aria-labelledby of tab-4, tabindex of 0, an hidden attribute
             - the fifth panel has an id of panel-5, an aria-labelledby of tab-5, tabindex of 0, an hidden attribute
+
+
+
+
+
+
+
+
+
+        
+
+STEP 8: THE MEAL-TYPE TAB COMPONENT STYLING
+        
+
+
+CONCEPT
+    - the meal-type tab is not the only tab component in our page.
+    - therefore it makes sense to style the tab-list container under a class called 'tab-list' 
+    - and the tab-list container buttons under a class called 'tab-btn' 
+    - we would also placing their styling semantically under the category of #COMPONENT: SECONDARY TAB
+
+    - in the semantic #CONTAINER category
+    - the section element via the section class will have a bottom margin
+    - the div element via the container class will give the section have an inline padding, width & max-width
+
+    - the tab-list container is obviously a horizontal flex-box with an underline & scrollable but hidden scroll-bar
+        - we will use a box shadow for this, such that the 1px underline is inset in the container
+        - this is because the tab-buttons will have a border bottom of 2px & we want it to align nicely with the tab-list underline
+    - the tab-buttons will have an height, an inline padding & a transparent border bottom.
+    - the tab-button with true aria-selected will be styled different. 
+
+    - in the semantic #TAB category 
+    - we will apply sticky positioning and a background color to the tab list to prevent see-through overlap with other elements.. 
+    - we also want the tab list width to match the container (.container) width. 
+        - like remember it is in a div element with the container class with gives the content an inline padding
+        - we do not want this inline padding to affect the tablist container 
+        - thus we adding negative margin-inline equal to the container's padding 
+        - then we set inline padding for the tab list, maintaining the appearance of unaffected padding. 
+
+        - we do not want to just remove the container class since this will also remove the inline padding 
+          because apart from the padding, the container also offer a 100% width & max-width to each section
+          also in this section we have tab-list & tab-panels & we want to make sure the inline padding still applies to the tab-panels
+
+IMPLEMENTATION
+    - the section class
+    - box settings of var-section-gap margin-block-end
+
+    - the container class
+
+    - the tab-list class (component category)
+    - display settings to flex display
+    - color settings to on-background-variant text color 
+    - box settings to a box-shadow of inset 0 -1px 0 outline-coloring
+    - overflow settings to auto overflow-x, a scrollbar-width of none to hide the scrollbar (for firefox browsers), no display for webkit-scrollbar pseudo-element (for webkit browsers)
+    
+    - the tab-btn class
+    - display settings of 1 0 80px flex
+    - size settings of 48px height,
+    - box settings of 24px inline-padding,  2px solid transparent border-block-end
+    - where in hover-state or in focus-visible-state, alpha-10 background color
+
+    - the tab-btn with true aria-selected attibute
+    - color settings of var-on-background text-color, var-primary border-color
+
+    - the tab-list class in the tab class (tab category) (tab tab-list)
+    - the section element also have the tab class
+    - position settings of sticky position, var-header-height top, 1 z-index
+    - color settings of var-background background color
+    - box settings of -16px margin-inline, 16px padding-inline, 16px 12px margin-block,.
+
+    - the tab-panel with hidden attibute
+    - display settings to none display. 
+
+    all section element via the section class have a margin-block-end of the section-gap variable.
+    the page container via the container class have a width of 100%, a max-width of 1130px, a margin-inline of auto, a padding-inline of 16px
+    the section & container styling
+
+
+INTERACTION
+    in the home js file we have the functionality 'HOME PAGE SEARCH'
+    basically when the search button in the banner component is clicked,
+    it gets the value of the search input and set the url of the window to the recipes page, passing in the url the search input value via a search-paramter called 'q' i.e `/recipes.html?q=${searchInputValue}`
+    thus for this implementation 3 major tools:
+    'the search button element'
+    'the search input element'
+    'the window.location api'
+
+    in the homepage, we have another functionaliy 'SEARCH ON ENTER KEY' basically search submit when the Enter key is pressed. we simple place a keydown event handler on the search input, if the key listened to is the Enter key we programmatically click on the search button.
+
+    in the homepage, we have another functionality 'TAB PANEL NAVIGATION'
+    obtain all tab-btn.
+    obtain all tab-panels
+    get the first tab-btn named as lastActiveBtn (this button is tagged with a true aria-selected attribute & tabIndex of 0)
+    get the second tab-panels named as lastActivePanel (the panel element is tagged with a hidden attibute)
+    place a click event on all tab-btn which does 3 things
+        make the last active button & panel in-active
+        make the current active button & current active panel
+        make the lastActiveBtn & lastActivePanel variable refer to the current active button & current active panel
+    this implementation makes use of the 'getAttribute', 'setAttribute', 'removeAttribute' functions
+    also in global.js we add the 'addEventOnElements Method' to the windows object which takes in the NodeList, the eventType & the callbackFunction this way we can call it directly in home.js (by directly i mean as if it was a function defined in home.js) 
+
+    in the homepage, we have another functionality 'TAB NAVIGATION WITH ARROW KEY'
+    add keydown event on all the tab buttons
+    get the Next Element Sibling of the button in question
+    get the Previous Element Sibling of the button in question
+    if the key is an ArrowRight key, the button in question tabindex is changed to -1 & then next Element Sibling of the button tabindex is changed to 0 and finally place focus on it.
+    if the key is ArrowLeft, the button in question tabindex is changed to -1 & then prev Element Sibling of the button tabindex is changed to 0 and finally place focus on it.
+    if the key is Tab, the button in question tabindex is changed to -1 & then the focus is placed back at the last active button
+                  
+
+
