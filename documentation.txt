@@ -376,6 +376,40 @@ STEP 7: THE BANNER COMPONENT STYLES
 
 
 
+        
+
+STEP 8: THE BANNER COMPONENT INTERACTION
+
+    Concept
+        - there are two main interaction
+        - search submit on button click
+        - search submit on enter key
+
+        - search submit on button click
+        - when the button is clicked, the value of the search field is gotten
+        - and the window is routed to the recipes page placing the search value in the url via the 'q' parameter
+        - '/recipes.html?q=${search-value}'
+
+        - search submit on enter key
+        - we will place a keydown event listener on the search field to listen for Enter Key press down
+        - if the key press is Enter key we would programmatically click on the search button.
+
+        - all interactions of the homepage will be written in the home.js file
+        - since this component is in the homepage, its codebase will be in the home.js file
+
+    Implementation
+        - search submit on button click
+        - get the search input DomElement ($searchField) via its id 'recipe-search-field' 
+        - get the search button DomElement ($searchButton) via its id 'recipe-search-button'
+        - place a click event handler on the '$searchButton' 
+        - in the click event handler, 
+            - we will utilise the window.location api.
+            - if searchField has a value then set the the window location to '/recipes.html?q=${search-field-value}'
+
+        - search submit on enter key
+        - place a keydown event handler on the '$searchField'
+        - if the key down is 'Enter' we call the click function on the '$searchButton'
+
 
 
 
@@ -383,7 +417,7 @@ STEP 7: THE BANNER COMPONENT STYLES
 
         
 
-STEP 7: THE MEAL-TYPE TAB COMPONENT LAYOUT
+STEP 9: THE MEAL-TYPE TAB COMPONENT LAYOUT
 
     Concept
         - basically this component is a tablist component.
@@ -437,83 +471,86 @@ STEP 7: THE MEAL-TYPE TAB COMPONENT LAYOUT
 
         
 
-STEP 8: THE MEAL-TYPE TAB COMPONENT STYLING
+STEP 10: THE MEAL-TYPE TAB COMPONENT STYLING
+            
+    CONCEPT
+        - the meal-type tab is not the only tab component in our page.
+        - therefore it makes sense to style the tab-list container under a class called 'tab-list' 
+        - and the tab-list container buttons under a class called 'tab-btn' 
+        - we would also placing their styling semantically under the category of #COMPONENT: SECONDARY TAB
+
+        - in the semantic #CONTAINER category
+        - the section element via the section class will have a bottom margin
+        - the div element via the container class will give the section have an inline padding, width & max-width
+
+        - the tab-list container is obviously a horizontal flex-box with an underline & scrollable but hidden scroll-bar
+            - we will use a box shadow for this, such that the 1px underline is inset in the container
+            - this is because the tab-buttons will have a border bottom of 2px & we want it to align nicely with the tab-list underline
+        - the tab-buttons will have an height, an inline padding & a transparent border bottom.
+        - the tab-button with true aria-selected will be styled different. 
+
+        - in the semantic #TAB category 
+        - we will apply sticky positioning and a background color to the tab list to prevent see-through overlap with other elements.. 
+        - we also want the tab list width to match the container (.container) width. 
+            - like remember it is in a div element with the container class with gives the content an inline padding
+            - we do not want this inline padding to affect the tablist container 
+            - thus we adding negative margin-inline equal to the container's padding 
+            - then we set inline padding for the tab list, maintaining the appearance of unaffected padding. 
+
+            - we do not want to just remove the container class since this will also remove the inline padding 
+            because apart from the padding, the container also offer a 100% width & max-width to each section
+            also in this section we have tab-list & tab-panels & we want to make sure the inline padding still applies to the tab-panels
+
+    IMPLEMENTATION
+        - the section class
+        - box settings of var-section-gap margin-block-end
+
+        - the container class
+
+        - the tab-list class (component category)
+        - display settings to flex display
+        - color settings to on-background-variant text color 
+        - box settings to a box-shadow of inset 0 -1px 0 outline-coloring
+        - overflow settings to auto overflow-x, a scrollbar-width of none to hide the scrollbar (for firefox browsers), no display for webkit-scrollbar pseudo-element (for webkit browsers)
+        
+        - the tab-btn class
+        - display settings of 1 0 80px flex
+        - size settings of 48px height,
+        - box settings of 24px inline-padding,  2px solid transparent border-block-end
+        - where in hover-state or in focus-visible-state, alpha-10 background color
+
+        - the tab-btn with true aria-selected attibute
+        - color settings of var-on-background text-color, var-primary border-color
+
+        - the tab-list class in the tab class (tab category) (tab tab-list)
+        - the section element also have the tab class
+        - position settings of sticky position, var-header-height top, 1 z-index
+        - color settings of var-background background color
+        - box settings of -16px margin-inline, 16px padding-inline, 16px 12px margin-block,.
+
+        - the tab-panel with hidden attibute
+        - display settings to none display. 
+
+        all section element via the section class have a margin-block-end of the section-gap variable.
+        the page container via the container class have a width of 100%, a max-width of 1130px, a margin-inline of auto, a padding-inline of 16px
+        the section & container styling
+
+
+
+
+
+
+
+
+
         
 
+STEP 11: THE MEAL-TYPE TAB COMPONENT INTERACTION
 
 CONCEPT
-    - the meal-type tab is not the only tab component in our page.
-    - therefore it makes sense to style the tab-list container under a class called 'tab-list' 
-    - and the tab-list container buttons under a class called 'tab-btn' 
-    - we would also placing their styling semantically under the category of #COMPONENT: SECONDARY TAB
-
-    - in the semantic #CONTAINER category
-    - the section element via the section class will have a bottom margin
-    - the div element via the container class will give the section have an inline padding, width & max-width
-
-    - the tab-list container is obviously a horizontal flex-box with an underline & scrollable but hidden scroll-bar
-        - we will use a box shadow for this, such that the 1px underline is inset in the container
-        - this is because the tab-buttons will have a border bottom of 2px & we want it to align nicely with the tab-list underline
-    - the tab-buttons will have an height, an inline padding & a transparent border bottom.
-    - the tab-button with true aria-selected will be styled different. 
-
-    - in the semantic #TAB category 
-    - we will apply sticky positioning and a background color to the tab list to prevent see-through overlap with other elements.. 
-    - we also want the tab list width to match the container (.container) width. 
-        - like remember it is in a div element with the container class with gives the content an inline padding
-        - we do not want this inline padding to affect the tablist container 
-        - thus we adding negative margin-inline equal to the container's padding 
-        - then we set inline padding for the tab list, maintaining the appearance of unaffected padding. 
-
-        - we do not want to just remove the container class since this will also remove the inline padding 
-          because apart from the padding, the container also offer a 100% width & max-width to each section
-          also in this section we have tab-list & tab-panels & we want to make sure the inline padding still applies to the tab-panels
-
-IMPLEMENTATION
-    - the section class
-    - box settings of var-section-gap margin-block-end
-
-    - the container class
-
-    - the tab-list class (component category)
-    - display settings to flex display
-    - color settings to on-background-variant text color 
-    - box settings to a box-shadow of inset 0 -1px 0 outline-coloring
-    - overflow settings to auto overflow-x, a scrollbar-width of none to hide the scrollbar (for firefox browsers), no display for webkit-scrollbar pseudo-element (for webkit browsers)
-    
-    - the tab-btn class
-    - display settings of 1 0 80px flex
-    - size settings of 48px height,
-    - box settings of 24px inline-padding,  2px solid transparent border-block-end
-    - where in hover-state or in focus-visible-state, alpha-10 background color
-
-    - the tab-btn with true aria-selected attibute
-    - color settings of var-on-background text-color, var-primary border-color
-
-    - the tab-list class in the tab class (tab category) (tab tab-list)
-    - the section element also have the tab class
-    - position settings of sticky position, var-header-height top, 1 z-index
-    - color settings of var-background background color
-    - box settings of -16px margin-inline, 16px padding-inline, 16px 12px margin-block,.
-
-    - the tab-panel with hidden attibute
-    - display settings to none display. 
-
-    all section element via the section class have a margin-block-end of the section-gap variable.
-    the page container via the container class have a width of 100%, a max-width of 1130px, a margin-inline of auto, a padding-inline of 16px
-    the section & container styling
-
+    - Th
 
 INTERACTION
-    in the home js file we have the functionality 'HOME PAGE SEARCH'
-    basically when the search button in the banner component is clicked,
-    it gets the value of the search input and set the url of the window to the recipes page, passing in the url the search input value via a search-paramter called 'q' i.e `/recipes.html?q=${searchInputValue}`
-    thus for this implementation 3 major tools:
-    'the search button element'
-    'the search input element'
-    'the window.location api'
-
-    in the homepage, we have another functionaliy 'SEARCH ON ENTER KEY' basically search submit when the Enter key is pressed. we simple place a keydown event handler on the search input, if the key listened to is the Enter key we programmatically click on the search button.
 
     in the homepage, we have another functionality 'TAB PANEL NAVIGATION'
     obtain all tab-btn.
