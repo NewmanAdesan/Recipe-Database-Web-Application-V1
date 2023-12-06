@@ -301,5 +301,16 @@ STEP 11: APPLICATION FEATURE - MOBILE NAVIGATION COMPONENT
 
 
 
-STEP 12: APPLICATION FEATURE - MOBILE NAVIGATION COMPONENT
+STEP 12: APPLICATION FEATURE - THE BANNER COMPONENT
+
+    THE CONCEPT
+        - basically, each page is divided into 3 parts Header, Main, Footer.
+        - the Main part of the hompage has different sections.
+        - the first section is the banner compnent which basically has 4 items
+        - a background image, an heading text, a search-box, a label text 
+        - the banner content is vertically center and horizontally centered
+        - the search box constitute a dummy icon, a search field & a search button.
+        - the heading text font-settings is of the category "DISPLAY-LARGE"
+        - the label text font-settings is of the category "LABEL-SMALL"
+        - CHECK STEP-6 & STEP-7 IN documentation.txt
 

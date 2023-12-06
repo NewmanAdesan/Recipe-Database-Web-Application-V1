@@ -102,7 +102,7 @@ STEP 2: THE HEADER COMPONENT STYLING
             - box styling to `radius-circle` border radius
 
         Style Category
-            - Component
+            - Component -> icon button
 
 
     THE BUTTON STYLE COMPONENT
@@ -120,7 +120,7 @@ STEP 2: THE HEADER COMPONENT STYLING
             - box settings of button that has icon ('btn has-icon') to 16 pixel start inline padding
 
         Style Category
-            - Component
+            - Component -> button
 
 
     THE PRIMARY BUTTON STYLE COMPONENT
@@ -133,7 +133,7 @@ STEP 2: THE HEADER COMPONENT STYLING
             - color setting when in 'hover state' OR 'focus-visible state' does not apply to 'active state' to `primary hover` background color.
 
         Style Category
-            - Component
+            - Component -> primary button
 
 
     THE SECONDARY BUTTON STYLE COMPONENT
@@ -145,7 +145,7 @@ STEP 2: THE HEADER COMPONENT STYLING
             - color settings to `primary-container` background color  
 
         Style Category
-            - Component
+            - Component -> secondary button
 
     
     THE MOBILE HEADER STYLING
@@ -273,6 +273,9 @@ STEP 5: THE MOBILE NAVIGATION STYLING
         - when the 'nav-link' of the 'mobile-nav' have attribute aria-current=true, set the 'item-icon' color settings to active-indicator background color
         - when the 'nav-link' of the 'mobile-nav' have attribute aria-current=true, set the 'material-symbols-outlined class' font variation settings to 'FILL' 1
 
+    Style Category
+        - Mobile Nav UI
+
 
 
         
@@ -331,8 +334,6 @@ STEP 7: THE BANNER COMPONENT STYLES
                 - it has an hover interaction wherein its background transitions.
 
 
-
-
     Implementation
         - the banner class
         - size setting to 100 percent width
@@ -349,7 +350,7 @@ STEP 7: THE BANNER COMPONENT STYLES
         - position settings to relative position, hidden overflow
         - size settings to 100% width, 480px max-width
         - box settings to auto inline-margin, 16px margin-block-start, 12px margin-block-end.
-        - text settings to on-background text-color
+        - color settings to on-background text-color
 
         - the search-icon class
         - position settings to absolute position, 50% top, 16px left, -50% translateY transform, 1 z-index
@@ -365,11 +366,63 @@ STEP 7: THE BANNER COMPONENT STYLES
         - size settings to 48px width
         - background settings to primary background color
         - box settings to 4px border radius
-        - text settings to white color.
+        - color settings to white color.
         - interaction settings to short transition
         - where hover interaction, focus-visible interaction not active, set to primary-hover background color.
 
+    Style Category
+        - Hero UI
 
 
 
 
+
+
+
+
+
+        
+
+STEP 7: THE MEAL-TYPE TAB COMPONENT LAYOUT
+
+    Concept
+        - basically this component is a tablist component.
+        - this means we have a list of buttons called tabs which controls a panel to display when they are clicked.
+        - thus we will place a button for each tab in a div element acting as our tab-list
+        - we will place this tab-list container in a parent container.
+        - the panel corresponding to each tab will be siblings of this tab-list container as they dwell in the parent container
+
+    Implementation
+        - the meal-type tablist is another section in the article container,
+        - in the section is a div element with a container class which act as the container of content to giving it basically an inline padding.
+        - in the container is our tab-list container, with the role of tablist, with the aria-label of Meal Type
+        - in our tab-list container, we have buttons 
+            - with a TITLE-SMALL font settings, 
+            - with the role of tab, 
+            - with a tabindex attribute, 
+            - with an aria-selected attribute, 
+            - with an aria-controls attribute, 
+            - with an id attribute, 
+            - with a text content, 
+            - with the has-state interaction
+            - 
+            - 
+            - the first button has aria-controls of panel-1, id of tab-1, text of "Breakfast", tabindex of 0, aria-selected of true
+            - the second button has aria-controls of panel-2, id of tab-2, text of "Lunch", tabindex of -1, aria-selected of false
+            - the third button has aria-controls of panel-3, id of tab-3, text of "Dinner", tabindex of -1, aria-selected of false
+            - the fourth button has aria-controls of panel-4, id of tab-4, text of "Snack", tabindex of -1, aria-selected of false
+            - the fifth button has aria-controls of panel-5, id of tab-5, text of "Teatime", tabindex of -1, aria-selected of false
+        - in the container, after the tab-list container lie all our tab panels, 
+            - with a role of tabpanel, 
+            - with an id attribute, 
+            - with an aria-labelledby attribute, 
+            - with a tabindex of 0, 
+            - with an hidden attribute, 
+            - with a text-content (for now, later it will have recipe cards)
+            - 
+            - 
+            - the first panel has an id of panel-1, an aria-labelledby of tab-1, tabindex of 0, no hidden attribute
+            - the second panel has an id of panel-2, an aria-labelledby of tab-2, tabindex of 0, an hidden attribute
+            - the third panel has an id of panel-3, an aria-labelledby of tab-3, tabindex of 0, an hidden attribute
+            - the fouth panel has an id of panel-4, an aria-labelledby of tab-4, tabindex of 0, an hidden attribute
+            - the fifth panel has an id of panel-5, an aria-labelledby of tab-5, tabindex of 0, an hidden attribute
